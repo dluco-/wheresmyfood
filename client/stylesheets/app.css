@@ -1,0 +1,29 @@
+.site {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+}
+
+.site > .container {
+  flex: 1;
+  padding-top: 5em;
+  padding-bottom: 5em;
+}
+
+.wireframe {
+  margin-top: 2em;
+}
+
+.ui.footer.segment {
+  padding: 5em 0em;
+}
+
+.loading-message {
+  color: #fff;
+  font-size: 25px;
+  font-weight: 300;
+  font-family: sans-serif;
+}
+.sk-spinner-rotating-plane.sk-spinner {
+  background-color: #fff;
+}

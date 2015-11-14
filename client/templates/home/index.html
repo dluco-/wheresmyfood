@@ -1,0 +1,30 @@
+<template name="homeIndex">
+  <div class="ui main text">
+    <h1 class="ui header">Welcome to Where's my food?</h1>
+
+    <table class="ui very basic table">
+      <thead>
+        <tr>
+          <th colspan="4">Products</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each products}}
+        <tr>
+          <td><a class="header left floated" href="{{pathFor 'productsShow'}}">{{name}}</a></td>
+          <td>{{description}}</td>
+          <td>
+            {{#with vendor}}
+            <a href="{{pathFor 'vendorsShow'}}">{{name}}</a>
+            {{/with}}
+          </td>
+          <td>{{momentRelative bought_date}}</td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+
+    {{> addProduct}}
+
+  </div>
+</template>

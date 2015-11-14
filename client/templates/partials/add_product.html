@@ -1,0 +1,26 @@
+<template name="addProduct">
+  <form class="ui form add-product">
+    <div class="fields three">
+      <div class="field">
+        <div class="ui dropdown selection search" name="SKU">
+          <span class="default text">SKU</span>
+          <div class="menu">
+            {{#each products}}
+            <div class="item">
+              <span class="description">{{name}}</span>
+              <span class="text">{{sku}}</span>
+            </div>
+            {{/each}}
+          </div>
+        </div>
+      </div>
+      <div class="field">
+        <input placeholder="Name" type="text">
+      </div>
+      <div class="field">
+        <input placeholder="Vendor" type="text">
+      </div>
+    </div>
+    <button class="ui button" type="submit">Submit</button>
+  </form>
+</template>

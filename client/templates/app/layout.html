@@ -1,0 +1,9 @@
+<template name="layout">
+  <div class="site">
+    {{ > yield region='nav' }}
+    <div class=" ui container">
+      {{> yield}}
+    </div>
+    {{> yield region='footer' }}
+  </div>
+</template>
