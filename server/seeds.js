@@ -70,6 +70,31 @@ var productsSeeds = [{
     999,
     888
   ]
+},
+{
+  "sku": "",
+  "name": "Fint Salt med jod",
+  "image": "",
+  "summary": "Fint hushållssalt",
+  "description": "",
+  "price": 10,
+  "volume": "600g",
+  "bought_date": today,
+  "best_before_date": today,
+  "status": "published",
+  "unit": {
+    "id": 2,
+    "slug": "unit-st",
+    "name": "st"
+  },
+  "vendor": {
+    "id": 4,
+    "slug": "jozo",
+    "name": "Jozo"
+  },
+  "ean": [
+    8715800002315
+  ]
 }];
 
 var vendorsSeed = [

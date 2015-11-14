@@ -2,21 +2,27 @@
   <div class="ui main text">
     <h1 class="ui header">Welcome to Where's my food?</h1>
 
+    <h2>Products</h2>
     <table class="ui very basic table">
       <thead>
         <tr>
-          <th colspan="4">Products</th>
+          <th>Name</th>
+          <th>Vendor</th>
+          <th>EAN's</th>
+          <th>Bought date</th>
         </tr>
       </thead>
       <tbody>
         {{#each products}}
         <tr>
           <td><a class="header left floated" href="{{pathFor 'productsShow'}}">{{name}}</a></td>
-          <td>{{description}}</td>
           <td>
             {{#with vendor}}
             <a href="{{pathFor 'vendorsShow'}}">{{name}}</a>
             {{/with}}
+          </td>
+          <td>
+            <a href="{{pathFor 'eansShow'}}">{{ean}}</a>
           </td>
           <td>{{momentRelative bought_date}}</td>
         </tr>

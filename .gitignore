@@ -2,3 +2,4 @@
 .meteor/meteorite
 settings.json
 settings.development.json
+.DS_Store
