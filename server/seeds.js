@@ -1,6 +1,6 @@
 var today = new Date();
 var productsSeeds = [{
-  "sku": "4088",
+  "ean": 8715800002315,
   "name": "Bananas",
   "image": "banana.png",
   "summary": "Yellow fruit",
@@ -18,13 +18,9 @@ var productsSeeds = [{
     "id": 1,
     "slug": "fyffes",
     "name": "Fyffes Bananas Ltd"
-  },
-  "ean": [
-    123,
-    321
-  ]
+  }
 }, {
-  "sku": "3050",
+  "ean": 12435643523,
   "name": "Cucumber",
   "image": "cucumber.jpg",
   "summary": "Long and green",
@@ -42,12 +38,9 @@ var productsSeeds = [{
     "id": 2,
     "slug": "brinks",
     "name": "Brinks gurkor"
-  },
-  "ean": [
-    111
-  ]
+  }
 }, {
-  "sku": "1593",
+  "ean": 123124235452,
   "name": "Apples",
   "image": "apples.jpg",
   "summary": "Tasty red apples, mans best friend",
@@ -65,14 +58,10 @@ var productsSeeds = [{
     "id": 3,
     "slug": "rudenstam",
     "name": "Rudenstams äpplen"
-  },
-  "ean": [
-    999,
-    888
-  ]
+  }
 },
 {
-  "sku": "",
+  "ean": 8923982311,
   "name": "Fint Salt med jod",
   "image": "",
   "summary": "Fint hushållssalt",
@@ -91,10 +80,7 @@ var productsSeeds = [{
     "id": 4,
     "slug": "jozo",
     "name": "Jozo"
-  },
-  "ean": [
-    8715800002315
-  ]
+  }
 }];
 
 var vendorsSeed = [
@@ -118,7 +104,7 @@ var vendorsSeed = [
 if (Products.find().count() === 0) {
   _.each(productsSeeds, function(product) {
     Products.insert(product);
-    console.log("Inserted", product.sku);
+    console.log("Inserted", product.ean);
   });
 }
 

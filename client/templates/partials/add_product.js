@@ -1,46 +1,46 @@
-
 Template.addProduct.helpers({
   products: function() {
     return Products.find();
   }
 });
 
-Template.addProduct.onRendered(function () {
+Template.addProduct.onRendered(function() {
+  this.$('.datetimepicker').datetimepicker({
+    format: "D MMMM YYYY"
+  });
   this.$('.ui.dropdown').dropdown({
     allowAdditions: true
   });
 });
 
+Template.addProduct.rendered = function() {
+  $('.ui.add-product').form({
+    fields: {
+      name: "empty",
+      vendor_name: "empty",
+      vendor_slug: "empty"
+    }
+  });
+};
+
 Template.addProduct.events({
-  "submit .add-product": function(event, template) {
-    event.preventDefault();
+  "submit .add-product": function(e, t) {
+    e.preventDefault();
+
+    var name = t.find("#name").value;
+    var vendor_name = t.find("#vendor_name").value;
+    var vendor_slug = t.find("#vendor_slug").value;
 
     // Insert in database
-
-    var data = event.target;
-    console.log(data);
-    var fail = false;
-
-    // Check that all fields are set.
-    _.some(data, function(element) {
-      if (element.value === "" && element.hasAttribute("placeholder")) {
-        sAlert.error("Check that " + element.placeholder + " are set.");
-        fail = true;
+    Products.insert({
+      name: name,
+      vendor: {
+        id: 1,
+        slug: vendor_slug,
+        name: vendor_name
       }
     });
-
-    if (!fail) {
-      Products.insert({
-        sku: data[0].value,
-        name: data[1].value,
-        vendor: {
-          id: 1,
-          slug: data[0].value,
-          name: ""
-        }
-      });
-      event.target.reset();
-      sAlert.success("Product " + data[1].value + " succesfully added");
-    }
+    e.target.reset();
+    sAlert.success("Product succesfully added");
   }
 });

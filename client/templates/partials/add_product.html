@@ -1,24 +1,21 @@
 <template name="addProduct">
   <form class="ui form add-product">
-    <div class="fields three">
-      <div class="field">
-        <div class="ui dropdown selection search" name="SKU">
-          <span class="default text">SKU</span>
-          <div class="menu">
-            {{#each products}}
-            <div class="item">
-              <span class="description">{{name}}</span>
-              <span class="text">{{sku}}</span>
-            </div>
-            {{/each}}
-          </div>
-        </div>
-      </div>
-      <div class="field">
-        <input placeholder="Name" type="text">
-      </div>
-      <div class="field">
-        <input placeholder="Vendor" type="text">
+    <div class="field">
+      <label for="name">Name</label>
+      <input id="name" placeholder="Name" type="text">
+    </div>
+    <div class="field">
+      <label for="vendor_name">Vendor Name</label>
+      <input id="vendor_name" placeholder="Vendor name" type="text">
+    </div>
+    <div class="field">
+      <label for="vendor_slug">Vendor Slug</label>
+      <input id="vendor_slug" placeholder="Vendor slug" type="text">
+    </div>
+    <div class="fields">
+      <div class="ui sixteen wide field dropdown">
+        <label for="best_before_date">Best before date</label>
+        <input id="best_before_date" placeholder="Best before date" class="datetimepicker" type="text" />
       </div>
     </div>
     <button class="ui button" type="submit">Submit</button>

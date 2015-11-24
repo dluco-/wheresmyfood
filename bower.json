@@ -1,8 +1,6 @@
 {
   "name": "wheres-my-food",
   "version": "0.0.1",
-  "dependencies": {
-    "moment": "2.10.6"
-  },
+  "dependencies": {},
   "private": true
 }

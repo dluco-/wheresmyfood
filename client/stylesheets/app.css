@@ -14,16 +14,13 @@
   margin-top: 2em;
 }
 
-.ui.footer.segment {
-  padding: 5em 0em;
-}
-
 .loading-message {
   color: #fff;
   font-size: 25px;
   font-weight: 300;
   font-family: sans-serif;
 }
-.sk-spinner-rotating-plane.sk-spinner {
+.sk-spinner.sk-spinner-double-bounce .sk-double-bounce1,
+.sk-spinner.sk-spinner-double-bounce .sk-double-bounce2 {
   background-color: #fff;
 }

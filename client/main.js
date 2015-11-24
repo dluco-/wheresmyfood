@@ -3,5 +3,5 @@ UI.registerHelper("moment", function(){
 });
 
 UI.registerHelper("momentRelative", function(fromDate) {
-  return moment(fromDate).toNow();
+  return moment(fromDate).fromNow();
 });

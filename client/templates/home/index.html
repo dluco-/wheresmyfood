@@ -30,7 +30,9 @@
       </tbody>
     </table>
 
-    {{> addProduct}}
+    {{# if isInRole 'Administrator'}}
+      {{> addProduct}}
+    {{/if}}
 
   </div>
 </template>
