@@ -5,7 +5,10 @@ Template.addProduct.helpers({
 });
 
 Template.addProduct.onRendered(function() {
-  this.$('.datetimepicker').datetimepicker({
+  this.$('#bought_date').datetimepicker({
+    format: "D MMMM YYYY"
+  });
+  this.$('#best_before_date').datetimepicker({
     format: "D MMMM YYYY"
   });
   this.$('.ui.dropdown').dropdown({
@@ -18,22 +21,30 @@ Template.addProduct.rendered = function() {
     fields: {
       name: "empty",
       vendor_name: "empty",
-      vendor_slug: "empty"
+      vendor_slug: "empty",
+      best_before_date: "empty"
     }
   });
 };
 
 Template.addProduct.events({
+  "click .selection.dropdown .item.selected": function(e, t) {
+    $(".add-product .disabled").removeClass("disabled");
+  },
   "submit .add-product": function(e, t) {
     e.preventDefault();
 
-    var name = t.find("#name").value;
+    var name = t.find(".selection.dropdown .item.selected .text").getAttribute("data-name");
+    var ean = t.find(".selection.dropdown .item.selected .description").getAttribute("data-ean");
     var vendor_name = t.find("#vendor_name").value;
     var vendor_slug = t.find("#vendor_slug").value;
+    var best_before_date = $('#best_before_date').data("DateTimePicker").date();
 
     // Insert in database
     Products.insert({
       name: name,
+      ean: ean,
+      best_before_date: best_before_date._d,
       vendor: {
         id: 1,
         slug: vendor_slug,

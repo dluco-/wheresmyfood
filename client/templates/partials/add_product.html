@@ -1,21 +1,44 @@
 <template name="addProduct">
+  <h2>Add product</h2>
   <form class="ui form add-product">
-    <div class="field">
-      <label for="name">Name</label>
-      <input id="name" placeholder="Name" type="text">
+    <div class="field required">
+      <label>Add or select product</label>
+      <div class="ui search selection dropdown">
+        <input id="name" type="hidden">
+        <i class="dropdown icon"></i>
+        <div class="default text">Add or select product</div>
+        <div class="menu">
+          {{#each products}}
+          <div class="item" data-id="{{_id}}">
+            <span class="description" data-ean="{{ean}}">EAN: {{ean}}</span>
+            <span class="text" data-name="{{name}}">{{name}}</span>
+          </div>
+          {{/each}}
+        </div>
+      </div>
     </div>
-    <div class="field">
-      <label for="vendor_name">Vendor Name</label>
-      <input id="vendor_name" placeholder="Vendor name" type="text">
+    <div class="two fields">
+      <div class="field disabled">
+        <label for="vendor_name">Vendor Name</label>
+        <input id="vendor_name" placeholder="Vendor name" type="text">
+      </div>
+      <div class="field disabled">
+        <label for="vendor_slug">Vendor Slug</label>
+        <input id="vendor_slug" placeholder="Vendor slug" type="text">
+      </div>
     </div>
-    <div class="field">
-      <label for="vendor_slug">Vendor Slug</label>
-      <input id="vendor_slug" placeholder="Vendor slug" type="text">
-    </div>
-    <div class="fields">
-      <div class="ui sixteen wide field dropdown">
-        <label for="best_before_date">Best before date</label>
-        <input id="best_before_date" placeholder="Best before date" class="datetimepicker" type="text" />
+    <div class="two fields">
+      <div class="field disabled">
+        <div class="ui dropdown fluid">
+          <label for="bought_date">Bought date</label>
+          <input id="bought_date" placeholder="Bought date" class="datetimepicker" type="text" />
+        </div>
+      </div>
+      <div class="field disabled">
+        <div class="ui dropdown fluid">
+          <label for="best_before_date">Best before date</label>
+          <input id="best_before_date" placeholder="Best before date" class="datetimepicker" type="text" />
+        </div>
       </div>
     </div>
     <button class="ui button" type="submit">Submit</button>

@@ -9,7 +9,7 @@
           <th>Name</th>
           <th>Vendor</th>
           <th>EAN's</th>
-          <th>Bought date</th>
+          <th>Best before date</th>
         </tr>
       </thead>
       <tbody>
@@ -24,7 +24,7 @@
           <td>
             <a href="{{pathFor 'eansShow'}}">{{ean}}</a>
           </td>
-          <td>{{momentRelative bought_date}}</td>
+          <td>{{momentRelative best_before_date}}</td>
         </tr>
         {{/each}}
       </tbody>
