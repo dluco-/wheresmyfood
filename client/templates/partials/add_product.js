@@ -21,8 +21,7 @@ Template.addProduct.rendered = function() {
     fields: {
       name: "empty",
       vendor_name: "empty",
-      vendor_slug: "empty",
-      best_before_date: "empty"
+      vendor_slug: "empty"
     }
   });
 };
@@ -44,7 +43,7 @@ Template.addProduct.events({
     Products.insert({
       name: name,
       ean: ean,
-      best_before_date: best_before_date._d,
+      // best_before_date: best_before_date._d,
       vendor: {
         id: 1,
         slug: vendor_slug,
