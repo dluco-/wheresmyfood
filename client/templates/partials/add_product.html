@@ -1,44 +1,72 @@
 <template name="addProduct">
   <h2>Add product</h2>
-  <form class="ui form add-product">
-    <div class="field required">
-      <label>Add or select product</label>
-      <div class="ui search selection dropdown">
-        <input id="name" type="hidden">
-        <i class="dropdown icon"></i>
-        <div class="default text">Add or select product</div>
-        <div class="menu">
-          {{#each products}}
-          <div class="item" data-id="{{_id}}">
-            <span class="description" data-ean="{{ean}}">EAN: {{ean}}</span>
-            <span class="text" data-name="{{name}}">{{name}}</span>
+  <form class="ui form small equal width add-product">
+    <div class="two fields">
+      <div class="field required">
+        <label>Add or select product</label>
+        <div id="ean" class="ui search selection dropdown">
+          <input type="hidden">
+          <i class="dropdown icon"></i>
+          <div class="default text">Add or select product</div>
+          <div class="menu">
+            {{#each products}}
+            <div class="item" data-id="{{_id}}">
+              <span class="text" data-ean="{{ean}}">{{ean}}</span>
+              <span class="description" data-name="{{name}}">{{name}}</span>
+            </div>
+            {{/each}}
           </div>
-          {{/each}}
         </div>
       </div>
-    </div>
-    <div class="two fields">
-      <div class="field disabled">
-        <label for="vendor_name">Vendor Name</label>
-        <input id="vendor_name" placeholder="Vendor name" type="text">
-      </div>
-      <div class="field disabled">
-        <label for="vendor_slug">Vendor Slug</label>
-        <input id="vendor_slug" placeholder="Vendor slug" type="text">
+      <div class="field required">
+        <label for="name">Name</label>
+        <input id="name" type="text" placeholder="Name">
       </div>
     </div>
     <div class="two fields">
-      <div class="field disabled">
+      <div class="field required">
+        <label for="vendor">Vendor</label>
+        <input id="vendor" placeholder="Vendor" type="text">
+      </div>
+    </div>
+    <div class="field">
+      <label for="description">Description</label>
+      <textarea id="description" rows="3" placeholder="Description"></textarea>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <label for="price">Price</label>
+        <input id="price" placeholder="Price" type="text">
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
         <div class="ui dropdown fluid">
           <label for="bought_date">Bought date</label>
           <input id="bought_date" placeholder="Bought date" class="datetimepicker" type="text" />
         </div>
       </div>
-      <div class="field disabled">
+      <div class="field">
         <div class="ui dropdown fluid">
           <label for="best_before_date">Best before date</label>
           <input id="best_before_date" placeholder="Best before date" class="datetimepicker" type="text" />
         </div>
+      </div>
+    </div>
+    <div class="two fields">
+      <div class="field">
+        <label for="unit">Unit</label>
+        <select id="unit" class="ui dropdown">
+          <option value="1" data-slug="unit-st">St</option>
+          <option value="2" data-slug="unit-kg">Kg</option>
+        </select>
+      </div>
+      <div class="field">
+        <label for="status">Status</label>
+        <select id="status" class="ui dropdown">
+          <option value="publish">Publish</option>
+          <option value="draf">Draft</option>
+        </select>
       </div>
     </div>
     <button class="ui button" type="submit">Submit</button>
