@@ -3,3 +3,4 @@
 settings.json
 settings.development.json
 .DS_Store
+.idea/
